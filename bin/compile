@@ -5,9 +5,10 @@ indent() {
 }
 
 cd $1
-mkdir -p vendor
+mkdir -p geoip_db
 
 MAXMIND=https://geolite.maxmind.com/download/geoip/database
 
 echo "-----> Fetching GeoLiteCity2 IPv4"
-curl -L --silent $MAXMIND/GeoLite2-City.mmdb.gz | gzip -d -c > vendor/maxmind.mmdb
+curl -L --silent $MAXMIND/GeoLite2-City.mmdb.gz | gzip -d -c > geoip_db/GeoLite2-City.mmdb
+curl -L --silent $MAXMIND/GeoLite2-Country.mmdb.gz | gzip -d -c > geoip_db/GeoLite2-City.mmdb
